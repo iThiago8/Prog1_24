@@ -1,5 +1,51 @@
-﻿// Trabalhando com variáveis C#
+﻿//Alteração para concluir o item 4
+
+// Trabalhando com variáveis C#
 using static System.Console;
+
+//Comentário de marcação Aula 19/02/2024
+
+/*
+    //Inicilizar a string vazia
+        //Maneira não ideal de fazer
+        string message3 = "";
+
+        //Maneira ideal
+        string message4 = System.String.Empty;
+
+    //Declararar uma string com valor implícito
+    var message5 = "Mensagem aleatória";
+
+    //Concatenando variáveis
+
+    string concat = (message1 == null ? "" : message1)  + " " + message2 + " " + message3 + " " + message4 + " " + message5;
+
+    WriteLine( "\n" + concat );
+
+    WriteLine(
+        "Hoje é {0:D} e a temperatura é de {1}°C."
+        , DateTime.Now
+        , 23 
+    );
+
+    string nome = string.Empty;
+    WriteLine("Qual é o seu nome?");
+    nome = ReadLine();
+    string resultado = $"Oi, {nome}! Pare de jaguarice!";
+    WriteLine(resultado);
+*/
+
+//Comentário de marcação Aula 26/02/2024
+
+/*    Escreva um programa em c# que sirva como uma ficha cadastral. Tente caprichar no layout!
+    Essa ficha cadastral deve coletar alguns dados do usuário:
+        Nome;
+        E-mail;
+        Data de nascimento;
+        Sexo ou gênero;
+        Endereço: separado por CEP, Rua, Número, Bairro, Cidade, Unidade Federativa e País;
+    Ao coletar os dados, monte um texto exibindo a ficha cadastral do indivíduo.
+
 
 //Declarando variáveis para a ficha cadastral
 string nome;
@@ -47,7 +93,7 @@ uf = ReadLine();
 WriteLine("Qual seu País?");
 pais = ReadLine();
 
-string endereco = cep + ", " + rua + " n°" + numero + ", bairro " + bairro + ", " + cidade + " - " + uf + ", " + pais + ".";
+string endereco = $"{cep}, {rua}, n° {numero}, {bairro} {cidade} - {uf}, {pais}.";
 
 WriteLine(
     "---------------Ficha Cadastral---------------"
@@ -58,42 +104,35 @@ WriteLine(
     + $"\n O seu endereço é: {endereco}"
     + "\n---------------Ficha Cadastral---------------"
 );
-
-/*
-//Inicilizar a string vazia
-    //Maneira não ideal de fazer
-    string message3 = "";
-
-    //Maneira ideal
-    string message4 = System.String.Empty;
-
-//Declararar uma string com valor implícito
-var message5 = "Mensagem aleatória";
-
-//Concatenando variáveis
-
-string concat = (message1 == null ? "" : message1)  + " " + message2 + " " + message3 + " " + message4 + " " + message5;
-
-WriteLine( "\n" + concat );
-
-WriteLine(
-    "Hoje é {0:D} e a temperatura é de {1}°C."
-    , DateTime.Now
-    , 23 
-);
-
-string nome = string.Empty;
-WriteLine("Qual é o seu nome?");
-nome = ReadLine();
-string resultado = $"Oi, {nome}! Pare de jaguarice!";
-WriteLine(resultado);
-
-Escreva um programa em c# que sirva como uma ficha cadastral. Tente caprichar no layout!
-Essa ficha cadastral deve coletar alguns dados do usuário:
-    Nome;
-    E-mail;
-    Data de nascimento;
-    Sexo ou gênero;
-    Endereço: separado por CEP, Rua, Número, Bairro, Cidade, Unidade Federativa e País;
-Ao coletar os dados, monte um texto exibindo a ficha cadastral do indivíduo.
 */
+
+//Comentário de marcação Aula 04/03/2024
+
+//Substituindo conteúdo de strings
+    string nomeCompleto = "Thiago Pedro Padilha";
+    nomeCompleto = 
+        nomeCompleto.Replace("Pedro", "Pereira");
+    WriteLine(nomeCompleto);
+
+//Comparando strings
+bool isNomeEqual = 
+    (nomeCompleto == "Thiago Pedro Padilha");
+
+bool isNomeEqual2 = 
+    string.Equals(nomeCompleto, "Thiago Pereira Padilha");
+
+WriteLine($"Primeiro resultado = {isNomeEqual}, Segundo resultado = {isNomeEqual2}");
+
+//Tipos numéricos
+/*
+    sbyte: armazena valores entre -128 e 127;
+    short: armazena valores entre -32,768 e 32,767;
+    int: armazena valores entre -2,147,483,648 e 2,147,483,647
+    long: armazena valores entre -9,223,372,036,854,775,808 e 9,223,372,036,854,775,807
+*/
+
+float myFloat = 10f;
+double myDouble = 5d;
+decimal myDecimal = 7m;
+
+WriteLine($"{myFloat}, {myDouble}, {myDecimal}");
