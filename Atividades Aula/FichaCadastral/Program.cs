@@ -9,50 +9,50 @@
 */
 
 //Declarando variáveis para a ficha cadastral
-string nome;
-string email;
-string dtnascimento;
-string sexo;
-string cep;
-string rua;
-string numero;
-string bairro;
-string cidade;
-string uf;
-string pais;
+string? nome;
+string? email;
+string? dtnascimento;
+string? sexo;
+string? cep;
+string? rua;
+string? numero;
+string? bairro;
+string? cidade;
+string? uf;
+string? pais;
 
 WriteLine("Olá, qual o seu nome?");
-nome = ReadLine();
+    nome = ReadLine();
 
 WriteLine($"Seja bem vindo, {nome}! Por favor, me informe o seu e-mail.");
-email = ReadLine();
+    email = ReadLine();
 
 WriteLine("Ok! Agora, qual a sua data de nascimento (Favor escrever no formato dd/mm//aaaa)?");
-dtnascimento = ReadLine();
+    dtnascimento = ReadLine();
 
 WriteLine("Qual seu sexo/genêro?");
-sexo = ReadLine();
+    sexo = ReadLine();
 
 WriteLine("Qual seu CEP?");
-cep = ReadLine();
+    cep = ReadLine();
 
 WriteLine("Qual sua rua?");
-rua = ReadLine();
+    rua = ReadLine();
 
 WriteLine("Qual o número da tua casa?");
-numero = ReadLine();
+    numero = ReadLine();
 
 WriteLine("Qual seu bairro?");
-bairro = ReadLine();
+    bairro = ReadLine();
 
 WriteLine("Qual sua cidade?");
-cidade = ReadLine();
+    cidade = ReadLine();
 
 WriteLine("Qual sua Unidade Federativa (Estado)?");
-uf = ReadLine();
+    uf = ReadLine();
 
 WriteLine("Qual seu País?");
-pais = ReadLine();
+    pais = ReadLine();
 
 string endereco = $"{cep}, {rua}, n° {numero}, {bairro} {cidade} - {uf}, {pais}.";
 
