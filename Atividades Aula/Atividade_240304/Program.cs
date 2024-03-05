@@ -22,4 +22,7 @@ switch (operador)
     case "/":
         WriteLine($"O resultado da divisão é: " + (num1 / num2));
         break;
+    default:
+        WriteLine("Você digitou um operando inválido.");
+        break;
 }
