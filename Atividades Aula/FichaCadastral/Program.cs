@@ -27,7 +27,7 @@ WriteLine("Olá, qual o seu nome?");
 WriteLine($"Seja bem vindo, {nome}! Por favor, me informe o seu e-mail.");
     email = ReadLine();
 
-WriteLine("Ok! Agora, qual a sua data de nascimento (Favor escrever no formato dd/mm//aaaa)?");
+WriteLine("Ok! Agora, qual a sua data de nascimento (Favor escrever no formato dd/mm/aaaa)?");
     dtnascimento = ReadLine();
 
 WriteLine("Qual seu sexo/genêro?");
