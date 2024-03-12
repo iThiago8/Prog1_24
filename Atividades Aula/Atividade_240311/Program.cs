@@ -5,12 +5,9 @@
 bool loop = true;
 while(loop)
 {
-    WriteLine("Agora digite qual operação você quer fazer (+, -, * ou /) ou (0) para encerrar.");
+    WriteLine("Digite qual operação você quer fazer (+, -, * ou /) ou (0) para encerrar.");
 
     string? operador = ReadLine();
-
-    if(operador.Equals("0"))
-        break;
 
     switch (operador)
     {
@@ -23,6 +20,7 @@ while(loop)
                 }
                 WriteLine("--------------------");
             }
+            loop = false;
             break;
         case "-":
             for (float p2 = 1; p2 <= 9; p2++)
@@ -33,6 +31,7 @@ while(loop)
                 }
                 WriteLine("--------------------");
             }
+            loop = false;
             break;
         case "*":
             for (float p2 = 1; p2 <= 9; p2++)
@@ -43,6 +42,7 @@ while(loop)
                 }
                 WriteLine("--------------------");
             }
+            loop = false;
             break;
         case "/":
             for (float p2 = 1; p2 <= 9; p2++)
@@ -53,11 +53,13 @@ while(loop)
                 }
                 WriteLine("--------------------");
             }
+            loop = false;
+            break;
+        case "0":
+            loop = false;
             break;
         default:
             WriteLine("Você digitou um operando inválido.");
             break;
     }
-
 }
-
