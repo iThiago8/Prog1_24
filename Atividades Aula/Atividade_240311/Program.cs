@@ -1,15 +1,21 @@
 ﻿//Escreva um programa C# que seja capaz de pergutar ao usuário um arg aritmético específico e com base na operação escolhida pelo usuário, imprima a tabuada de 1 a 9 daquela operação. Utiliza uma formatação de impressão de laço de repetição for ou while para exibir a tabuada completa dinamicamente;
 
-
 internal class Program
 {
-    private static void Main(string arg)
+    private static void Main(string[] args)
     {
         bool loop = true;
         while (loop)
         {
-            WriteLine("Digite qual operação você quer fazer (+, -, * ou /) ou (0) para encerrar.");
-
+            string? arg;
+            if (args.Length == 0)
+            {
+                WriteLine("Digite qual operação você quer fazer (+, -, * ou /) ou (0) para encerrar.");
+                arg = ReadLine();
+            } else
+            {
+                arg = args[0];
+            }
             switch (arg)
             {
                 case "+":
@@ -64,6 +70,6 @@ internal class Program
                     WriteLine("Você digitou um operando inválido.");
                     break;
             }
-        }
+        } 
     }
 }
