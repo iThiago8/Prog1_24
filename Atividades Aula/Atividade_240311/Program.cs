@@ -14,52 +14,15 @@ internal class Program
                 arg = ReadLine();
             } else
             {
-                arg = args[0];
+                arg = Convert.ToString(args[0]);
             }
             switch (arg)
             {
                 case "+":
-                    for (float p2 = 1; p2 <= 9; p2++)
-                    {
-                        for (float p1 = 1; p1 <= 9; p1++)
-                        {
-                            WriteLine($"{p1} + {p2} = {p1 + p2}");
-                        }
-                        WriteLine("--------------------");
-                    }
-                    loop = false;
-                    break;
                 case "-":
-                    for (float p2 = 1; p2 <= 9; p2++)
-                    {
-                        for (float p1 = 1; p1 <= 9; p1++)
-                        {
-                            WriteLine($"{p1} - {p2} = {p1 - p2}");
-                        }
-                        WriteLine("--------------------");
-                    }
-                    loop = false;
-                    break;
                 case "*":
-                    for (float p2 = 1; p2 <= 9; p2++)
-                    {
-                        for (float p1 = 1; p1 <= 9; p1++)
-                        {
-                            WriteLine($"{p1} * {p2} = {p1 * p2}");
-                        }
-                        WriteLine("--------------------");
-                    }
-                    loop = false;
-                    break;
                 case "/":
-                    for (float p2 = 1; p2 <= 9; p2++)
-                    {
-                        for (float p1 = 1; p1 <= 9; p1++)
-                        {
-                            WriteLine($"{p1} / {p2} = {p1 / p2}");
-                        }
-                        WriteLine("--------------------");
-                    }
+                    MostrarTabuada(arg);
                     loop = false;
                     break;
                 case "0":
@@ -67,9 +30,37 @@ internal class Program
                     loop = false;
                     break;
                 default:
-                    WriteLine("Você digitou um operando inválido.");
+                    WriteLine("Você digitou um operando inválido");
                     break;
             }
-        } 
+        }
+    }
+    private static void MostrarTabuada(string operador)
+    {
+        WriteLine($"Tabuada do operador '{operador}':");
+        for (float f2 = 1; f2 <= 9; f2++)
+        {
+            for (float f1 = 1; f1 <= 9; f1++)
+            {
+                float resultado = 0;
+                switch (operador)
+                {
+                    case "+":
+                        resultado = f1 + f2;
+                        break;
+                    case "-":
+                        resultado = f1 - f2;
+                        break;
+                    case "*":
+                        resultado = f1 * f2;
+                        break;
+                    case "/":
+                        resultado = f1 / f2;
+                        break;
+                }
+                WriteLine($"{f1} {operador} {f2} = {resultado}");              
+            }
+            WriteLine("-------------------");
+        }   
     }
 }
