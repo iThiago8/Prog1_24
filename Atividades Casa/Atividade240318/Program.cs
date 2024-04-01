@@ -1,23 +1,23 @@
 ﻿// See https://aka.ms/new-console-template for more information
-using Atividade240318.models;
+using Atividade240318.Models;
 
 class Program 
 {
     static void Main()
     {
-        Cliente c1 = new Cliente();
+        Imovel i1 = new Imovel();
+        i1.Nome = "Ilha de Creta";        
+        i1.ImovelId = 1;
+        i1.Categoria = Categoria.Apartamento;
+        i1.Localidade = Localidade.Urbano;
+        i1.TipoNegocio = TipoNegocio.Locacacao;
+        i1.Descricao = "Condomínio de apartamentos para locação";
+        i1.Valor = 2000.00;
+        i1.NumeroComodos = 4;
 
-        c1.ClienteID = 1;
-        c1.Nome = "Thiago Pedro Padilha";
-        c1.Email = "thiago.pedro.padilha@gmail.com";
-        c1.DataNascimento = new DateTime();
-        c1.Sexo = "Masculino";
-        c1.CEP = "89564-346";
-        c1.Rua = "Araçatuba";
-        c1.Numero = 202;
-        c1.Bairro = "Sesi";
-        c1.Cidade = "Videira";
-        c1.Estado = "Santa Catarina";
-        c1.País = "Brasil";
+        Console.WriteLine
+        (
+            $"O imovel {i1.Nome}, é de categoria {i1.Categoria}, localidade {i1.Localidade}, sendo de {i1.TipoNegocio}, no valor de R${i1.Valor}, possuindo {i1.NumeroComodos} cômodos. \nDescrição: {i1.Descricao}"
+        );
     }
 }
