@@ -8,7 +8,8 @@ namespace _240401_01.Models
 {
     public class OrderItem
     {
-        public Product Product { get; set; }
+        public int OrderItemId { get; set; }
+        public Product? Product { get; set; }
         public double Quantity { get; set; }
         public double PurchasePrice { get; set; }
     
