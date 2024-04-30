@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using _240401_01.Data;
 using _240401_01.Models;
 
-namespace _240104_01.Repository
+namespace _240401_01.Repository
 {
     public class AddressRepository
     {
@@ -22,7 +22,26 @@ namespace _240104_01.Repository
                     return a;                
             }
 
+
             return null;
         }
+
+        public List<Address> Retrieve()
+        {
+            return DataSet.Addresses;
+        }
+
+        private int GetNextId()
+        {
+            int n = 0;
+            foreach (var a in DataSet.Addresses)
+            {
+                if (a.AddressId > n)
+                    n = a.AddressId;
+            }
+
+            return n++;
+        }
+        
     }
 }
