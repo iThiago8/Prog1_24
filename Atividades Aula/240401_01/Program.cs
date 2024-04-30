@@ -1,5 +1,4 @@
-﻿using _240104_01.Views;
-using _240401_01.Models;
+﻿using _240401_01.Models;
 using _240401_01.Views;
 
 bool aux = true;

@@ -13,20 +13,5 @@ namespace _240401_01.Models
         public DateTime? OrderDate { get; set; }
         public string? ShippingAddress { get; set; }
         public List<OrderItem>? OrderItems { get; set; }
-
-        public bool Validate()
-        {
-            return true;
-        }
-
-        public Order Retrieve()
-        {
-            return new Order();
-        }
-
-        public void Save(Order order)
-        {
-
-        }
     }
 }
