@@ -61,12 +61,10 @@ namespace _240401_01.Views
 
                 case 2:
                     address.Type = AddressType.Commercial;
-
                 break;
 
                 case 3:
                     address.Type = AddressType.Other;
-
                 break;
 
                 default:
@@ -98,9 +96,26 @@ namespace _240401_01.Views
             int isDefault = Convert.ToInt32(Console.ReadLine());
             address.isDefault = isDefault == 1 ? true : false;
 
+            Console.WriteLine("Deseja inserir um novo endereço?");
             addressController.Insert(address);
 
             return address;
         }
+
+        public void ShowAddresses()
+        {
+            List<Address> result = addressController.Get();
+            if (result == null || result?.Count == 0)
+            {
+                return;
+            }
+
+            foreach (var a in result)
+            {
+                Console.WriteLine(a.ToString());
+            }
+        }
     }
+
+    
 }

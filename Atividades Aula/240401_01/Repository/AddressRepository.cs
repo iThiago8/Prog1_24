@@ -11,6 +11,7 @@ namespace _240401_01.Repository
     {
         public void Save(Address address)
         {
+            address.AddressId = GetNextId();
             DataSet.Addresses.Add(address);
         }
 
@@ -25,6 +26,7 @@ namespace _240401_01.Repository
 
             return null;
         }
+        
 
         public List<Address> Retrieve()
         {
@@ -40,7 +42,7 @@ namespace _240401_01.Repository
                     n = a.AddressId;
             }
 
-            return n++;
+            return ++n;
         }
         
     }

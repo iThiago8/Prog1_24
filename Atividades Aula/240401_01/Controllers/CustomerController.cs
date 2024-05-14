@@ -18,6 +18,11 @@ namespace _240401_01.Controllers
         {
             customerRepository.Save(customer);
         }
+
+        public void Remove(Customer customer)
+        {
+            customerRepository.Delete(customer);
+        }
         public Customer Get(int id)
         {
             return customerRepository.Retrieve(id);

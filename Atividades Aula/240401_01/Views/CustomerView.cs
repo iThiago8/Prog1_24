@@ -31,6 +31,7 @@ namespace _240401_01.Views
                 Console.WriteLine("1 - Inserir Consumidor");
                 Console.WriteLine("2 - Pesquisar Consumidor");
                 Console.WriteLine("3 - Listar Consumidores");
+                Console.WriteLine("4 - Remover Consumidor por Id");
                 Console.WriteLine("0 - SAIR");
 
                 int menu = 0;
@@ -51,6 +52,10 @@ namespace _240401_01.Views
                         case 3:
                             ListCustomers();
                         break;
+
+                        case 4:
+                            RemoveCustomerById();
+                        break;
                         default:
                         break;
                     }
@@ -68,6 +73,7 @@ namespace _240401_01.Views
             Console.WriteLine("***********************");
             Console.WriteLine("INSERIR NOVO CONSUMIDOR");
             Console.WriteLine("***********************");
+            Console.WriteLine("");
 
             Customer customer = new Customer();
 
@@ -131,9 +137,12 @@ namespace _240401_01.Views
                 Console.WriteLine("********************");
                 Console.WriteLine("PESQUISAR CONSUMIDOR");
                 Console.WriteLine("********************");
+                Console.WriteLine("");
+                
                 Console.WriteLine("1 - Buscar por Id");
                 Console.WriteLine("2 - Buscar por nome");
                 Console.WriteLine("0 - SAIR");
+                Console.WriteLine("");
 
                 aux = Convert.ToInt32(Console.ReadLine());
 
@@ -221,8 +230,56 @@ namespace _240401_01.Views
             {
                 Console.WriteLine(c.ToString());
             }
-        
         }
 
+        private void RemoveCustomerById()
+        {
+            Console.WriteLine("*************************");
+            Console.WriteLine("REMOVER CONSUMIDOR POR ID");
+            Console.WriteLine("*************************");
+            Console.WriteLine("");
+
+            int id;
+            do{
+                try 
+                {
+                    Console.WriteLine("Digite o Id do consumidor que deseja remover:");
+                    id = Convert.ToInt32(Console.ReadLine());
+                }
+                catch
+                {
+                    Console.WriteLine("Valor inserido inválido.");
+                    id = -1;
+                }
+
+            } while (id == -1);
+
+            ShowCustomerById(id);
+            Customer c = customerController.Get(id);
+
+            Console.WriteLine("Deseja mesmo remover o consumidor acima?");
+
+            int aux;
+            do{
+                
+                try 
+                {
+                    Console.WriteLine("1 - Sim:");
+                    Console.WriteLine("2 - Não:");
+                    aux = Convert.ToInt32(Console.ReadLine());
+                }
+                catch
+                {
+                    Console.WriteLine("Valor inserido inválido.");
+                    aux = -1;
+                }
+
+            } while (aux == -1);
+
+            if (aux == 1)
+            {
+                customerController.Remove(c);
+            }
+        }
     }
 }
