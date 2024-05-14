@@ -43,10 +43,13 @@ namespace _240401_01.Views
                             aux = false;
                         break;
                         case 1:
+                            InsertCustomer();
                         break;
                         case 2:
+                            SearchCustomer();
                         break;
                         case 3:
+                            ListCustomers();
                         break;
                         default:
                         break;
@@ -77,7 +80,7 @@ namespace _240401_01.Views
             Console.WriteLine("");
 
             int aux = 0;
-        
+
             Console.WriteLine("Deseja informar um endereço?:");
             do {
                 Console.WriteLine("0 - Não");
@@ -109,8 +112,117 @@ namespace _240401_01.Views
                 
                 
             } while (aux != 0);
-
+        
+        try
+        {
+        customerController.Insert(customer);
+        }
+        catch 
+        {
+            Console.WriteLine("Ocorreu um erro.");
+        }
 
         }
+
+        private void SearchCustomer()
+        {    
+            int aux = -1;
+            do {
+                Console.WriteLine("********************");
+                Console.WriteLine("PESQUISAR CONSUMIDOR");
+                Console.WriteLine("********************");
+                Console.WriteLine("1 - Buscar por Id");
+                Console.WriteLine("2 - Buscar por nome");
+                Console.WriteLine("0 - SAIR");
+
+                aux = Convert.ToInt32(Console.ReadLine());
+
+                switch(aux)
+                {
+                    case 0:
+                    break;
+                    case 1:
+                        int id = -1;
+                        do {
+                            try 
+                            {
+                                Console.WriteLine("Digite o Id que deseja procurar");
+                                id = Convert.ToInt32(Console.ReadLine());
+                                ShowCustomerById(id);
+                            }
+                            catch (Exception ex)
+                            {
+                                Console.WriteLine($"Erro: {ex.Message}");
+                                id = -1;
+                                Console.WriteLine("Opção inválida");
+                            }
+
+                        } while (id == -1);
+                
+                    break;
+
+                    case 2:
+                        string name;
+                        Console.WriteLine("Digite o nome que deseja procurar");
+                        name = Console.ReadLine();
+                        ShowCustomersByName(name);
+
+                    break;
+
+                    default:
+                        aux = -1;
+                        Console.WriteLine("Opção inválida");
+                    break;
+                } 
+            } while (aux != 0);
+    
+
+        }
+        private void ShowCustomerById(int id)
+        {
+            Customer? c = customerController.Get(id);
+            if (c != null)
+            {
+                Console.WriteLine(c.ToString());
+            }
+            else 
+            {
+                Console.WriteLine("Sua consulta não retornou nenhum resultado.");
+            }
+        }
+
+        private void ShowCustomersByName(string name)
+        {
+            List<Customer> result = customerController.GetByName(name);
+            if (result == null || result?.Count == 0)
+            {
+                Console.WriteLine("Não encontrado!");
+                return;
+            }
+
+            foreach (var c in result)
+            {
+                Console.WriteLine(c.ToString());
+            }
+        
+            
+        }
+
+        private void ListCustomers()
+        {
+            List<Customer> result = customerController.Get();
+            if (result == null || result?.Count == 0)
+            {
+                Console.WriteLine("Não existem consumidores!");
+                return;
+            }
+
+            foreach (var c in result)
+            {
+                Console.WriteLine(c.ToString());
+            }
+        
+        }
+
     }
 }
