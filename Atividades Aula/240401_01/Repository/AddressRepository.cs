@@ -44,6 +44,11 @@ namespace _240401_01.Repository
 
             return ++n;
         }
+
+        public void Delete(Address address)
+        {
+            DataSet.Addresses.Remove(address);
+        }
         
     }
 }

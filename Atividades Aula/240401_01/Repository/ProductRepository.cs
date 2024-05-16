@@ -12,6 +12,7 @@ namespace _240401_01.Repository
     {
         public void Save(Product product)
         {
+            product.ProductId = this.GetNextId();
             DataSet.Products.Add(product);
         }
 
@@ -24,6 +25,22 @@ namespace _240401_01.Repository
             }
 
             return null;
+        }
+
+        public void Delete(Product product)
+        {
+            DataSet.Products.Remove(product);
+        }
+
+        public int GetNextId()
+        {
+            int n = 0;
+            foreach (var p in DataSet.Products)
+            {
+                if (p.ProductId > n)
+                    n = p.ProductId;
+            }
+            return ++n;
         }
     }
 }

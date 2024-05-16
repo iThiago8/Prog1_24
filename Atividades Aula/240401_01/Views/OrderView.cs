@@ -24,7 +24,7 @@ namespace _240401_01.Views
             bool aux = true;
             do {
                 Console.WriteLine("Escolha uma opção");
-                Console.WriteLine("1 - Inserir Consumidor");
+                Console.WriteLine("1 - Inserir Pedido");
                 Console.WriteLine("2 - Pesquisar Pedidos");
                 Console.WriteLine("3 - Listar Pedidos");
                 Console.WriteLine("0 - SAIR");
