@@ -70,6 +70,7 @@ namespace _240401_01.Views
 
         private void InsertCustomer()
         {
+            Console.WriteLine("");
             Console.WriteLine("***********************");
             Console.WriteLine("INSERIR NOVO CONSUMIDOR");
             Console.WriteLine("***********************");

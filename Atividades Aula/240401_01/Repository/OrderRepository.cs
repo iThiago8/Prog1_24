@@ -24,5 +24,10 @@ namespace _240401_01.Repository
 
             return null;
         }
+
+        public void Delete(Order order)
+        {
+            DataSet.Orders.Remove(order);
+        }
     }
 }
