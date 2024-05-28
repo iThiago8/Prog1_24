@@ -31,7 +31,9 @@ namespace _240401_01.Views
                 Console.WriteLine("1 - Inserir Consumidor");
                 Console.WriteLine("2 - Pesquisar Consumidor");
                 Console.WriteLine("3 - Listar Consumidores");
-                Console.WriteLine("4 - Remover Consumidor por Id");
+                Console.WriteLine("4 - Atualizar cadastro de Consumidor por Id");
+                Console.WriteLine("5 - Remover Consumidor por Id");
+                Console.WriteLine("6 - Exportar para delimitado");
                 Console.WriteLine("0 - SAIR");
 
                 int menu = 0;
@@ -46,16 +48,23 @@ namespace _240401_01.Views
                         case 1:
                             InsertCustomer();
                         break;
+
                         case 2:
                             SearchCustomer();
                         break;
+
                         case 3:
                             ListCustomers();
                         break;
 
-                        case 4:
+                        case 5:
                             RemoveCustomerById();
                         break;
+
+                        case 6:
+                            ExportToDelimited();
+                        break;
+
                         default:
                         break;
                     }
@@ -280,6 +289,22 @@ namespace _240401_01.Views
             if (aux == 1)
             {
                 customerController.Remove(c);
+            }
+        }
+    
+        private void ExportToDelimited()
+        {
+            try
+            {
+                customerController.ExportToDelimited();
+
+                Console.WriteLine();
+                Console.WriteLine("Arquivo gerado com sucesso!");
+                Console.WriteLine();
+            }
+            catch
+            {
+                Console.WriteLine("Houve uma falha ao exportar o arquivo. Favor tentar novamente mais tarde.");
             }
         }
     }
