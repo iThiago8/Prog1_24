@@ -15,9 +15,13 @@ namespace _240401_01.Models
 
         public string PrintToExportDelimited()
         {
-                return $"{CustomerId};{Name};{EmailAddress}";
+            return $"{CustomerId};{Name};{EmailAddress}";
         }
 
+        public string PrintToExportFixed()
+        {
+            return String.Format("{0, -4} | {1, -30} | {2, -50} | {3, -50}", CustomerId, Name, EmailAddress, Addresses);
+        }
 
         public override string ToString()
         {
