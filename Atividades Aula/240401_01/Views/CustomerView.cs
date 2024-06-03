@@ -34,6 +34,7 @@ namespace _240401_01.Views
                 Console.WriteLine("4 - Atualizar cadastro de Consumidor por Id");
                 Console.WriteLine("5 - Remover Consumidor por Id");
                 Console.WriteLine("6 - Exportar para delimitado");
+                Console.WriteLine("7 - Exportar para tamanho fixo");
                 Console.WriteLine("0 - SAIR");
 
                 int menu = 0;
@@ -63,6 +64,10 @@ namespace _240401_01.Views
 
                         case 6:
                             ExportToDelimited();
+                        break;
+
+                        case 7:
+                            ExportToFixed();
                         break;
 
                         default:
@@ -291,7 +296,24 @@ namespace _240401_01.Views
                 customerController.Remove(c);
             }
         }
-    
+
+        private void ExportToFixed()
+        {
+            try
+            {
+                customerController.ExportToFixed();
+
+                Console.WriteLine();
+                Console.WriteLine("Arquivo gerado com sucesso!");
+                Console.WriteLine();
+
+            }
+            catch 
+            {
+                Console.WriteLine("Houve uma falha ao exportar o arquivo. Favor tentar novamente mais tarde.");
+            }
+        }
+
         private void ExportToDelimited()
         {
             try

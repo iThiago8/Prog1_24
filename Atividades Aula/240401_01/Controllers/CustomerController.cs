@@ -52,5 +52,22 @@ namespace _240401_01.Controllers
 
             ExportToFile.SaveToDelimitedTxt(fileName, fileContent);
         }
+
+        public void ExportToFixed()
+        {
+            List<Customer> list = customerRepository.Retrieve();
+
+            string fileContent = string.Empty;
+
+            foreach (var c in list)
+            {
+                fileContent += $"{c.PrintToExportFixed()}\n";
+            }
+
+            string fileName = $"Customer_{DateTimeOffset.Now.ToUnixTimeSeconds()}.txt";
+
+            ExportToFile.SaveToFixedTxt(fileName, fileContent);
+        }
+
     }
 }
