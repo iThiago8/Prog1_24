@@ -33,8 +33,9 @@ namespace _240401_01.Views
                 Console.WriteLine("3 - Listar Consumidores");
                 Console.WriteLine("4 - Atualizar cadastro de Consumidor por Id");
                 Console.WriteLine("5 - Remover Consumidor por Id");
-                Console.WriteLine("6 - Exportar para delimitado");
+                Console.WriteLine("6 - Exportar dados delimitados");
                 Console.WriteLine("7 - Exportar para tamanho fixo");
+                Console.WriteLine("8 - Importar dados delimitados");
                 Console.WriteLine("0 - SAIR");
 
                 int menu = 0;
@@ -68,6 +69,10 @@ namespace _240401_01.Views
 
                         case 7:
                             ExportToFixed();
+                        break;
+
+                        case 8:
+                            ImportFromDelimited();
                         break;
 
                         default:
@@ -329,5 +334,19 @@ namespace _240401_01.Views
                 Console.WriteLine("Houve uma falha ao exportar o arquivo. Favor tentar novamente mais tarde.");
             }
         }
+
+        private void ImportFromDelimited()
+        {
+            Console.WriteLine("Informe o caminho do arquivo: ");
+            string filePath = Console.ReadLine();
+
+            Console.WriteLine("Informe o delimitador do arquivo: ");
+            string delimiter = Console.ReadLine();
+
+            string response = customerController.ImportFromDelimited(filePath, delimiter);
+
+            Console.WriteLine(response);
+        }
+
     }
 }
